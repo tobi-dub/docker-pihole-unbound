@@ -1,3 +1,6 @@
+Building on Synology: Files moved to root directory
+
+
 # Pi-Hole + Unbound on Docker
 
 [![Build and publish container](https://github.com/aleksanderbl29/docker-pihole-unbound/actions/workflows/auto-build-container.yml/badge.svg)](https://github.com/aleksanderbl29/docker-pihole-unbound/actions/workflows/auto-build-container.yml)
