@@ -7,7 +7,7 @@ RUN tar xzf unbound-latest.tar.gz
 RUN rm unbound-latest.tar.gz
 WORKDIR ./unbound-*/
 
-RUN ./configure
+RUN /unbound-1.20.0/configure
 RUN make
 RUN make install
 
