@@ -4,7 +4,8 @@ RUN apt-get update && apt-get -t bookworm install -y wget build-essential libssl
 
 RUN wget https://nlnetlabs.nl/downloads/unbound/unbound-latest.tar.gz
 RUN tar xzf unbound-latest.tar.gz
-WORKDIR /unbound*
+RUN rm unbound-latest.tar.gz
+WORKDIR ./unbound-*/
 
 RUN ./configure
 RUN make
