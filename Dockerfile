@@ -1,7 +1,17 @@
 FROM pihole/pihole:2024.05.0
 RUN echo "deb http://deb.debian.org/debian bookworm main" >> /etc/apt/sources.list
-RUN apt-get update && apt-get -t bookworm install -y unbound
+RUN apt-get update && apt-get -t bookworm install -y build-essential libssl-dev libexpat1-dev bison flex
 
+RUN wget https://nlnetlabs.nl/downloads/unbound/unbound-latest.tar.gz
+RUN tar xzf unbound-latest.tar.gz
+WORKDIR /unbound*
+
+RUN ./configure
+RUN make
+RUN make install
+
+WORKDIR /
+#COPY unbound.conf /usr/local/etc/unbound
 COPY lighttpd-external.conf /etc/lighttpd/external.conf
 COPY unbound-pihole.conf /etc/unbound/unbound.conf.d/pi-hole.conf
 COPY 99-edns.conf /etc/dnsmasq.d/99-edns.conf
