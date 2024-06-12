@@ -1,6 +1,6 @@
 FROM pihole/pihole:2024.05.0
 RUN echo "deb http://deb.debian.org/debian bookworm main" >> /etc/apt/sources.list
-RUN apt-get update && apt-get -t bookworm install -y build-essential libssl-dev libexpat1-dev bison flex
+RUN apt-get update && apt-get -t bookworm install -y wget build-essential libssl-dev libexpat1-dev bison flex
 
 RUN wget https://nlnetlabs.nl/downloads/unbound/unbound-latest.tar.gz
 RUN tar xzf unbound-latest.tar.gz
